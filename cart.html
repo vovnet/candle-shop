@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Корзина — GameDev Books</title>
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/pages/cart.css" />
+  </head>
+  <body>
+    <!-- 1. Сюда рендерится шапка -->
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+      <h1 class="page-title">Корзина</h1>
+
+      <!-- 2. КРИТИЧЕСКИ ВАЖНО: Этот ID должен точно совпадать с JS -->
+      <div id="cart-content"></div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- 3. Скрипт должен подключаться как module -->
+    <script type="module" src="./js/pages/cart.js"></script>
+  </body>
+</html>

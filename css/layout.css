@@ -1,0 +1,264 @@
+main {
+  flex: 1; /* 🆕 Занимает всё свободное пространство */
+  width: 100%;
+}
+
+/* Если используете .container вместо main */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* === Шапка сайта === */
+.site-header {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #667eea;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.logo:hover {
+  color: #764ba2;
+}
+
+.main-nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #667eea;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #667eea;
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.cart-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cart-badge {
+  background: #667eea;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* === Заголовки страниц === */
+.page-title {
+  font-size: 2.5rem;
+  margin: 40px 0 30px;
+  color: #333;
+}
+
+/* === Сетки === */
+.grid {
+  display: grid;
+  gap: 30px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* === Подвал === */
+.site-footer {
+  background: #2c1810; /* Тёплый тёмно-коричневый, подходит для свечей */
+  color: #d4a574;
+  padding: 60px 20px 0;
+  margin-top: 80px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.footer-section h4 {
+  color: #ffd89b;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.footer-section p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #c9a87c;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li {
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  color: #d4a574;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-section a:hover {
+  color: #ffd89b;
+}
+
+/* Соцсети */
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 216, 155, 0.1);
+  border-radius: 50%;
+  font-size: 18px;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.social-link:hover {
+  background: rgba(255, 216, 155, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Нижняя полоса */
+.footer-bottom {
+  border-top: 1px solid rgba(212, 165, 116, 0.2);
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #a08060;
+  margin: 0;
+}
+
+.footer-made-with {
+  margin-top: 8px !important;
+  font-size: 13px !important;
+  font-style: italic;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 40px 20px 0;
+    margin-top: 40px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* === Адаптивность === */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .main-nav {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    margin: 30px 0 20px;
+  }
+
+  section {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-nav {
+    gap: 15px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Чайные свечи</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages/home.css" />
+  </head>
+  <body>
+    <!-- Шапка рендерится через header.js -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero-секция -->
+    <section class="hero">
+      <div class="container hero-content">
+        <h1 class="hero-title">Зажги <span class="highlight">тепло</span> в каждом мгновении</h1>
+        <p class="hero-subtitle">
+          Ароматические свечи ручной работы из натурального соевого воска. Созданы, чтобы превратить
+          обычный вечер в маленький ритуал.
+        </p>
+        <div class="hero-actions">
+          <a href="catalog.html" class="btn btn-primary btn-large"> Выбрать свечу </a>
+          <a href="#advantages" class="btn btn-secondary btn-large"> О нашей мастерской </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section id="advantages" class="advantages">
+      <div class="container">
+        <h2 class="section-title">Почему выбирают нас</h2>
+        <div class="advantages-grid">
+          <div class="advantage-card">
+            <div class="advantage-icon">📚</div>
+            <h3>Практический опыт</h3>
+            <p>Все материалы основаны на реальных проектах и проверенных подходах.</p>
+          </div>
+          <div class="advantage-card">
+            <div class="advantage-icon">💻</div>
+            <h3>Современные технологии</h3>
+            <p>Phaser 4, TypeScript, WebGL — учимся на актуальных инструментах.</p>
+          </div>
+          <div class="advantage-card">
+            <div class="advantage-icon">🎯</div>
+            <h3>От простого к сложному</h3>
+            <p>Пошаговое обучение: от первой игры до сложных проектов.</p>
+          </div>
+          <div class="advantage-card">
+            <div class="advantage-icon">🤝</div>
+            <h3>Поддержка сообщества</h3>
+            <p>Закрытый чат с авторами и другими учениками для обсуждения задач.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Популярные товары -->
+    <section class="popular-products">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Популярные материалы</h2>
+          <a href="catalog.html" class="view-all-link">Смотреть все →</a>
+        </div>
+        <div id="popular-grid" class="products-grid"></div>
+      </div>
+    </section>
+
+    <!-- CTA-секция -->
+    <section class="cta-section">
+      <div class="container cta-content">
+        <h2>Готовы создать свой уютный вечер?</h2>
+        <p>Выберите аромат, который откликнется, и пусть он расскажет свою историю.</p>
+        <a href="catalog.html" class="btn btn-primary btn-large"> Смотреть коллекцию </a>
+      </div>
+    </section>
+
+    <!-- Подвал -->
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="js/pages/home.js"></script>
+  </body>
+</html>

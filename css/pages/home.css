@@ -1,0 +1,166 @@
+/* === Hero-секция === */
+.hero {
+  background: linear-gradient(135deg, #d4a574 0%, #8b6f47 100%);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  flex: 1;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-title .highlight {
+  color: #ffd89b;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* === Преимущества === */
+.advantages {
+  padding: 80px 20px;
+  background: #f8f9fa;
+}
+
+.section-title {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #333;
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.advantage-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.advantage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.advantage-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.advantage-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.advantage-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* === Популярные товары === */
+.popular-products {
+  padding: 80px 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section-header .section-title {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.view-all-link {
+  color: #667eea;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.view-all-link:hover {
+  color: #764ba2;
+}
+
+/* === CTA-секция === */
+.cta-section {
+  background: linear-gradient(135deg, #d4a574 0%, #8b6f47 100%);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.cta-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+
+/* === Адаптив === */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .advantages,
+  .popular-products,
+  .cta-section {
+    padding: 50px 20px;
+  }
+
+  .cta-content h2 {
+    font-size: 28px;
+  }
+}
