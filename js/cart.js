@@ -1,18 +1,12 @@
 import { storage } from "./storage.js";
-import { getProductById } from "./products.js";
+import { getProductById, loadProducts } from "./products.js"; // 🆕 Добавили loadProducts
 
 const CART_STORAGE_KEY = "cart";
 
-/**
- * Получить все товары из корзины
- */
 export function getCartItems() {
   return storage.get(CART_STORAGE_KEY, []);
 }
 
-/**
- * Добавить товар в корзину
- */
 export function addToCart(productId, quantity = 1) {
   const items = getCartItems();
   const existingItem = items.find((item) => item.productId === productId);
@@ -28,9 +22,6 @@ export function addToCart(productId, quantity = 1) {
   return getCartItems();
 }
 
-/**
- * Удалить товар из корзины
- */
 export function removeFromCart(productId) {
   const items = getCartItems().filter((item) => item.productId !== productId);
   storage.set(CART_STORAGE_KEY, items);
@@ -38,9 +29,6 @@ export function removeFromCart(productId) {
   return items;
 }
 
-/**
- * Изменить количество товара
- */
 export function updateQuantity(productId, quantity) {
   if (quantity <= 0) {
     return removeFromCart(productId);
@@ -56,35 +44,30 @@ export function updateQuantity(productId, quantity) {
   return items;
 }
 
-/**
- * Очистить корзину
- */
 export function clearCart() {
   storage.remove(CART_STORAGE_KEY);
   dispatchCartEvent("cart-updated");
 }
 
-/**
- * Получить количество товаров в корзине (для бейджа в шапке)
- */
 export function getCartCount() {
+  // Эту функцию можно оставить синхронной, ей не нужны данные о товарах
   return getCartItems().reduce((sum, item) => sum + item.quantity, 0);
 }
 
-/**
- * Получить общую сумму корзины
- */
-export function getCartTotal() {
+// 🆕 1. Делаем асинхронной и ждем загрузку товаров
+export async function getCartTotal() {
+  await loadProducts(); // Гарантируем, что кэш заполнен
+
   return getCartItems().reduce((sum, item) => {
     const product = getProductById(item.productId);
     return sum + (product ? product.price * item.quantity : 0);
   }, 0);
 }
 
-/**
- * Получить корзину с полными данными о товарах
- */
-export function getCartWithProducts() {
+// 🆕 2. Делаем асинхронной и ждем загрузку товаров
+export async function getCartWithProducts() {
+  await loadProducts(); // Гарантируем, что кэш заполнен
+
   return getCartItems()
     .map((item) => ({
       ...item,
@@ -94,7 +77,6 @@ export function getCartWithProducts() {
 }
 
 // === Система событий для обновления UI ===
-
 const cartListeners = new Set();
 
 export function onCartUpdate(callback) {

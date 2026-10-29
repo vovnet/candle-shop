@@ -1,23 +1,24 @@
 import { renderHeader } from "../header.js";
-import { PRODUCTS, formatPrice } from "../products.js";
+import { loadProducts, formatPrice } from "../products.js";
 import { renderFooter } from "../footer.js";
 import { addToCart } from "../cart.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   renderHeader();
   renderFooter();
-  renderPopularProducts();
+  await renderPopularProducts();
   setupSmoothScroll();
 });
 
 /**
  * Рендерит блок "Популярные товары" (первые 3 товара)
  */
-function renderPopularProducts() {
+async function renderPopularProducts() {
   const grid = document.getElementById("popular-grid");
   if (!grid) return;
 
-  const popularProducts = PRODUCTS.slice(0, 3);
+  const products = await loadProducts();
+  const popularProducts = products.slice(0, 3);
 
   grid.innerHTML = popularProducts
     .map(

@@ -6,23 +6,24 @@ import {
   clearCart,
   getCartTotal,
   onCartUpdate,
+  getCartItems,
 } from "../cart.js";
 import { formatPrice } from "../products.js";
 import { submitOrder } from "../api.js";
 import { renderFooter } from "../footer.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   renderHeader();
-  renderCart();
   renderFooter();
+  await renderCart();
 
   // Перерисовываем корзину при любых изменениях
   onCartUpdate(renderCart);
 });
 
-function renderCart() {
+async function renderCart() {
   const container = document.getElementById("cart-content");
-  const items = getCartWithProducts();
+  const items = await getCartWithProducts();
 
   if (items.length === 0) {
     container.innerHTML = `
@@ -34,7 +35,7 @@ function renderCart() {
     return;
   }
 
-  const total = getCartTotal();
+  const total = await getCartTotal();
 
   container.innerHTML = `
     <div class="cart-layout">
@@ -106,12 +107,16 @@ function handleCartActions(e) {
 
   switch (action) {
     case "increase": {
-      const item = getCartWithProducts().find((i) => i.product.id === id);
+      // 🆕 Используем синхронную getCartItems, она возвращает обычный массив
+      const items = getCartItems();
+      const item = items.find((i) => i.productId === id);
       if (item) updateQuantity(id, item.quantity + 1);
       break;
     }
     case "decrease": {
-      const item = getCartWithProducts().find((i) => i.product.id === id);
+      // 🆕 То же самое для уменьшения
+      const items = getCartItems();
+      const item = items.find((i) => i.productId === id);
       if (item) updateQuantity(id, item.quantity - 1);
       break;
     }
@@ -138,8 +143,8 @@ async function handleCheckout(e) {
 
   try {
     const formData = new FormData(form);
-    const items = getCartWithProducts();
-    const total = getCartTotal();
+    const items = await getCartWithProducts();
+    const total = await getCartTotal();
 
     const orderData = {
       name: formData.get("name"),

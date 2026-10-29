@@ -2,6 +2,9 @@ export const CONFIG = {
   GOOGLE_SCRIPT_URL:
     "https://script.google.com/macros/s/AKfycbzZf1ky9t7ObOBE5Eyg-OYE8pxyzN_BWuWKJQJ5FbNB1Fe4pff5DHSb3I6k3fS2nWhL/exec",
 
+  CATALOG_API_URL:
+    "https://script.google.com/macros/s/AKfycbwT6jek6Yhf2A2RbTMGoNv_WM0BSezRjYuRWxvNMqQiI7R0WTCb-pd712B16NT8UAnlAw/exec",
+
   PRODUCT: {
     name: "Ароматическая свеча",
     price: 1500,
