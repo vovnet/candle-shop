@@ -125,27 +125,55 @@ async function handleCheckout(e) {
   e.preventDefault();
 
   const form = e.target;
-  const formData = new FormData(form);
-  const items = getCartWithProducts();
-  const total = getCartTotal();
+  // Находим кнопку отправки внутри этой конкретной формы
+  const submitBtn = form.querySelector('button[type="submit"]');
 
-  const orderData = {
-    name: formData.get("name"),
-    phone: formData.get("phone"),
-    email: formData.get("email"),
-    comment: formData.get("comment"),
-    product: items.map((i) => `${i.product.name} x${i.quantity}`).join(", "),
-    quantity: items.reduce((s, i) => s + i.quantity, 0),
-    total,
-  };
+  // Сохраняем исходный текст кнопки, чтобы вернуть его в случае ошибки
+  const originalText = submitBtn.innerHTML;
 
-  const result = await submitOrder(orderData);
+  // 🔄 1. Переводим кнопку в состояние загрузки
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span class="spinner"></span> Отправка...';
+  submitBtn.style.opacity = "0.7";
 
-  if (result.success) {
-    clearCart();
-    alert("✅ Заказ успешно оформлен! Мы свяжемся с вами.");
-    window.location.href = "index.html";
-  } else {
-    alert("❌ Ошибка при оформлении заказа. Попробуйте еще раз.");
+  try {
+    const formData = new FormData(form);
+    const items = getCartWithProducts();
+    const total = getCartTotal();
+
+    const orderData = {
+      name: formData.get("name"),
+      phone: formData.get("phone"),
+      email: formData.get("email"),
+      comment: formData.get("comment"),
+      product: items.map((i) => `${i.product.name} x${i.quantity}`).join(", "),
+      quantity: items.reduce((s, i) => s + i.quantity, 0),
+      total,
+    };
+
+    // Ждем ответа от сервера
+    const result = await submitOrder(orderData);
+
+    if (result.success) {
+      clearCart();
+      alert("✅ Заказ успешно оформлен! Мы свяжемся с вами.");
+      window.location.href = "index.html";
+    } else {
+      alert("❌ Ошибка при оформлении заказа. Попробуйте еще раз.");
+      // 🔄 2. Возвращаем кнопку в исходное состояние при ошибке
+      resetButton();
+    }
+  } catch (error) {
+    console.error("Ошибка при отправке:", error);
+    alert("❌ Произошла непредвиденная ошибка сети.");
+    // 🔄 3. Возвращаем кнопку в исходное состояние при сбое
+    resetButton();
+  }
+
+  // Вспомогательная функция для сброса состояния кнопки
+  function resetButton() {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+    submitBtn.style.opacity = "1";
   }
 }
