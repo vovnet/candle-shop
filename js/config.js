@@ -22,8 +22,8 @@ export const CONFIG = {
     },
     contacts: {
       email: "hello@warmcandles.ru",
-      phone: "+79991234567",
-      phoneFormatted: "+7 (999) 123-45-67",
+      phone: "+79886708838",
+      phoneFormatted: "+7 (988) 670-88-38",
       workHours: "Пн-Пт: 10:00 — 19:00",
     },
   },

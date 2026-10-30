@@ -21,7 +21,7 @@ export function renderFooter() {
           <p>${CONFIG.SITE.description}</p>
           <div class="social-links">
             <a href="${CONFIG.SITE.social.instagram}" class="social-link" aria-label="Instagram">📷</a>
-            <a href="${CONFIG.SITE.social.telegram}" class="social-link" aria-label="Telegram">✈️</a>
+            <a href="${CONFIG.SITE.social.telegram}" class="social-link" aria-label="Telegram"><i class="ph ph-telegram-logo"></i></a>
             <a href="${CONFIG.SITE.social.vk}" class="social-link" aria-label="VK">💬</a>
           </div>
         </div>

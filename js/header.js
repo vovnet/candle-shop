@@ -17,7 +17,7 @@ export function renderHeader() {
           <a href="index.html" class="nav-link">Главная</a>
           <a href="catalog.html" class="nav-link">Каталог</a>
           <a href="cart.html" class="nav-link cart-link">
-            🛒 Корзина
+            <i class="ph ph-shopping-cart" style="font-size: 20px;"></i> Корзина
             <span class="cart-badge" id="cart-badge">0</span>
           </a>
         </nav>

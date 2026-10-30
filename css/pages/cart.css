@@ -140,6 +140,8 @@
 }
 
 .remove-btn {
+  width: 42px;
+  height: 42px;
   background: transparent;
   border: none;
   color: #c9a87c;
