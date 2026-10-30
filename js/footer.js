@@ -20,9 +20,7 @@ export function renderFooter() {
           <h4>${CONFIG.SITE.name}</h4>
           <p>${CONFIG.SITE.description}</p>
           <div class="social-links">
-            <a href="${CONFIG.SITE.social.instagram}" class="social-link" aria-label="Instagram">📷</a>
             <a href="${CONFIG.SITE.social.telegram}" class="social-link" aria-label="Telegram"><i class="ph ph-telegram-logo"></i></a>
-            <a href="${CONFIG.SITE.social.vk}" class="social-link" aria-label="VK">💬</a>
           </div>
         </div>
         
@@ -41,6 +39,7 @@ export function renderFooter() {
             <li><a href="#delivery">Доставка и оплата</a></li>
             <li><a href="#care">Уход за свечами</a></li>
             <li><a href="#faq">Частые вопросы</a></li>
+            <li><a href="/index.html#advantages">О нас</a></li>
           </ul>
         </div>
         

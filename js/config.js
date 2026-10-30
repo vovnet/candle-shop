@@ -13,8 +13,9 @@ export const CONFIG = {
 
   // 🆕 Данные сайта (используются в подвале)
   SITE: {
-    name: "Тёплые свечи",
-    description: "Мастерская авторских свечей ручной работы из натурального соевого воска.",
+    name: "ACFES",
+    description:
+      "Многоразовые свечи ручной работы: премиальная эстетика живого огня без копоти и лишних расходов",
     social: {
       instagram: "https://instagram.com/warm_candles",
       telegram: "https://t.me/warm_candles",
