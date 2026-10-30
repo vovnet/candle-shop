@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="css/pages/home.css" />
+    <link rel="stylesheet" href="css/pages/testimonials.css" />
   </head>
   <body>
     <!-- Шапка рендерится через header.js -->
@@ -65,6 +66,27 @@
           <a href="catalog.html" class="view-all-link">Смотреть все →</a>
         </div>
         <div id="popular-grid" class="products-grid"></div>
+      </div>
+    </section>
+
+    <!-- 🆕 Отзывы -->
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="section-title">Что говорят наши клиенты</h2>
+
+        <div class="testimonials-carousel">
+          <button class="carousel-btn carousel-btn-prev" aria-label="Предыдущий отзыв">‹</button>
+
+          <div class="carousel-track-wrapper">
+            <div class="carousel-track" id="testimonials-track">
+              <!-- Карточки рендерятся через JS -->
+            </div>
+          </div>
+
+          <button class="carousel-btn carousel-btn-next" aria-label="Следующий отзыв">›</button>
+        </div>
+
+        <div class="carousel-dots" id="carousel-dots"></div>
       </div>
     </section>
 

@@ -2,11 +2,13 @@ import { renderHeader } from "../header.js";
 import { loadProducts, formatPrice } from "../products.js";
 import { renderFooter } from "../footer.js";
 import { addToCart } from "../cart.js";
+import { initTestimonials } from "../testimonials.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   renderHeader();
   renderFooter();
   await renderPopularProducts();
+  initTestimonials();
   setupSmoothScroll();
 });
 
