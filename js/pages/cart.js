@@ -87,6 +87,15 @@ async function renderCart() {
           
           <!-- Комментарий -->
           <textarea name="comment" placeholder="Комментарий к заказу (необязательно)"></textarea>
+
+          <!-- 🆕 Чекбокс согласия с офертой -->
+          <label class="checkbox-label">
+            <input type="checkbox" name="offer-agreement" required>
+            <span>
+              Я принимаю условия 
+              <a href="offer.html" target="_blank" class="offer-link">публичной оферты</a>
+            </span>
+          </label>
           
           <button type="submit" class="btn btn-primary btn-full">
             Оформить заказ

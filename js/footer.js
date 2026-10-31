@@ -30,6 +30,7 @@ export function renderFooter() {
             <li><a href="index.html">Главная</a></li>
             <li><a href="catalog.html">Каталог</a></li>
             <li><a href="cart.html">Корзина</a></li>
+            <li><a href="offer.html">Оферта</a></li>
           </ul>
         </div>
         
