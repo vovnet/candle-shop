@@ -68,9 +68,9 @@ async function renderCart() {
           <div class="delivery-select-wrapper">
             <select name="delivery" required class="delivery-select">
               <option value="" disabled selected>Выберите способ доставки</option>
-              <option value="Почта России">📮 Почта России</option>
-              <option value="Ozon доставка">📦 Ozon доставка</option>
-              <option value="СДЭК">🚚 СДЭК</option>
+              <option value="Почта">Почта России</option>
+              <option value="Ozon">Пункт выдачи Ozon</option>
+              <option value="СДЭК">СДЭК</option>
             </select>
             <i class="ph ph-caret-down delivery-select-icon"></i>
           </div>
